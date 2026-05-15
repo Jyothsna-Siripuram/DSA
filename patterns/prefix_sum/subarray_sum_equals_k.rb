@@ -29,10 +29,27 @@ def subarray_sum(nums, k)
     end
     count
 end
-nums = [1,1,1]
-k = 2
+# nums = [1,1,1]
+# k = 2
+# nums = [1,2,3]
+# k = 3
+# puts subarray_sum(nums, k)
+
+# using pattern O(n)
+def subarray_sum(nums, k)
+    prefix_sum = 0
+    count = 0
+    prefix_freq = Hash.new(0)
+    prefix_freq[0] = 1
+    (0...nums.length).each do |i|
+        prefix_sum += nums[i]
+        count += prefix_freq[prefix_sum - k]
+        prefix_freq[prefix_sum] += 1 
+    end
+    count
+end
+# nums = [1,1,1]
+# k = 2
 nums = [1,2,3]
 k = 3
 puts subarray_sum(nums, k)
-
-# using pattern

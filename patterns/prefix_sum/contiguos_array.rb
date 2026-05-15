@@ -37,7 +37,28 @@ def find_max_length(nums)
     end
     p max_length
 end
-# nums = [0,1,1,1,1,1,0,0,0]
+nums = [0,1,1,1,1,1,0,0,0]
 # nums = [0,1,0]
-nums = [0,1]
+# nums = [0,1]
+# find_max_length(nums)
+
+#using pattern
+def find_max_length(nums)
+    max_length = 0
+    prefix_sum = 0
+    (0...nums.length).each do |i|
+        if nums[i] == 0
+            prefix_sum += -1
+        else
+            prefix_sum += nums[i]
+        end
+
+        if prefix_sum == 0
+            length = j - i + 1
+            max_length = [length, max_length].max
+        end
+        max_length
+    end
+end
+
 find_max_length(nums)
