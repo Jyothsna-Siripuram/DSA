@@ -24,5 +24,17 @@ def move_zeros(nums)
     nums.append([0] * no_of_zeros).flatten!
 end
 
+#using pattern
+def move_zeros(nums)
+    j = 0
+    (0...nums.length).each do |i|
+        if nums[i] != 0
+            nums[i], nums[j] = nums[j], nums[i]
+            j += 1
+        end
+    end
+    nums
+end
+
 nums = [0,1,0,3,12]
 p move_zeros(nums)
