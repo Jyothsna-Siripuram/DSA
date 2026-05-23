@@ -19,5 +19,17 @@ def remove_duplicates(arr)
     arr
 end
 
-arr = 1,1,2,3,3,4
-remove_duplicates(arr)
+def remove_duplicates(arr)
+   i = 0
+   (1...arr.length+1).each do |j|
+        if arr[i] != arr[j]
+            i += 1
+            arr[i] = arr[j]
+        end
+   end
+   arr[0...i]
+end
+
+arr = [1,1,2,3,3,4]
+p remove_duplicates(arr)
+

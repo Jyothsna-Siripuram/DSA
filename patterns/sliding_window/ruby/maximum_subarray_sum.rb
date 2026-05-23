@@ -60,4 +60,24 @@ def maximum_subarray_sum(nums, k)
     end
     max_sum
 end
-maximum_subarray_sum(nums, k)
+# maximum_subarray_sum(nums, k)
+
+def maximum_subarray_sum(nums, k)
+    subarry_sum = 0
+
+    # first window sum
+    (0...k).each do |i|
+        subarry_sum += nums[i]
+    end
+    max_sub_array_sum = subarry_sum
+
+    #second_window sum until end of array
+    (k...nums.length).each do |i|
+        subarry_sum += nums[i] - nums[i-k]
+        max_sub_array_sum = [max_sub_array_sum, subarry_sum].max
+    end
+    max_sub_array_sum
+end
+nums = [2,1,5,1,3,2]
+k = 3
+p maximum_subarray_sum(nums, k)
