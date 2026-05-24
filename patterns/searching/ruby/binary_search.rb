@@ -24,3 +24,4 @@ def binary_search(arr, target)
 end
 
 p binary_search(arr, x)
+

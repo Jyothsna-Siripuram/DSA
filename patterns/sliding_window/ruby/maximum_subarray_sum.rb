@@ -80,4 +80,50 @@ def maximum_subarray_sum(nums, k)
 end
 nums = [2,1,5,1,3,2]
 k = 3
+# p maximum_subarray_sum(nums, k)
+# with distinct elements in an array
+
+def maximum_subarray_sum(nums, k)
+    return 0 if nums.length < k
+
+    freq = Hash.new(0)
+    window_sum = 0
+    max_sum = 0
+
+    # first window
+    (0...k).each do |i|
+        window_sum += nums[i]
+        freq[nums[i]] += 1
+    end
+
+    max_sum = window_sum if freq.length == k
+
+    # slide window
+    (k...nums.length).each do |i|
+        outgoing = nums[i - k]
+        incoming = nums[i]
+
+        # remove outgoing element
+        window_sum -= outgoing
+        freq[outgoing] -= 1
+        freq.delete(outgoing) if freq[outgoing] == 0
+
+        # add incoming element
+        window_sum += incoming
+        freq[incoming] += 1
+
+        # check distinct window
+        if freq.length == k
+            max_sum = [max_sum, window_sum].max
+        end
+    end
+
+    max_sum
+end
+nums = [1,5,4,2,9,9,9]
+k = 3
+nums = [4,4,4]
+nums =  [1,1,1,7,8,9]
+k = 3
 p maximum_subarray_sum(nums, k)
+# new_sum = old_sum - outgoing + incoming
