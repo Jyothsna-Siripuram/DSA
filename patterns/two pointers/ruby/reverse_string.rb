@@ -22,3 +22,13 @@ def reverse_string(s)
         right -= 1
     end 
 end
+
+# Steps to Reverse a String::::
+
+# Start one pointer at the beginning of the string.
+# Start another pointer at the end of the string.
+# Swap the characters at both pointers.
+# Move the left pointer forward.
+# Move the right pointer backward.
+# Repeat until both pointers meet or cross.
+# The string is now reversed.

@@ -42,3 +42,13 @@ def is_palindrome(s)
 end
 s ="A man, a plan, a canal: Panama"
 p is_palindrome(s)
+
+# Steps to Check Palindrome String
+
+# Start one pointer from the beginning of the string.
+# Start another pointer from the end of the string.
+# Compare the characters at both pointers.
+# If characters are different, the string is not a palindrome.
+# If characters are the same, move both pointers toward the center.
+# Repeat until pointers meet or cross.
+# If all characters matched, the string is a palindrome.
